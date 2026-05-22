@@ -1,0 +1,89 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+
+  --color-brand-50: #eef7ff;
+  --color-brand-100: #d9ecff;
+  --color-brand-200: #bcdeff;
+  --color-brand-300: #8ec9ff;
+  --color-brand-400: #59a8ff;
+  --color-brand-500: #3385ff;
+  --color-brand-600: #1a65f5;
+  --color-brand-700: #1450e1;
+  --color-brand-800: #1741b6;
+  --color-brand-900: #193a8f;
+  --color-brand-950: #142557;
+
+  --color-surface: #ffffff;
+  --color-surface-muted: #f8fafc;
+  --color-surface-elevated: #ffffff;
+  --color-border: #e2e8f0;
+  --color-foreground: #0f172a;
+  --color-muted: #64748b;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-surface: #0b1220;
+    --color-surface-muted: #111827;
+    --color-surface-elevated: #151d2e;
+    --color-border: #1e293b;
+    --color-foreground: #f1f5f9;
+    --color-muted: #94a3b8;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-surface-muted);
+  color: var(--color-foreground);
+  font-family: var(--font-sans);
+}
+
+::selection {
+  background: color-mix(in srgb, var(--color-brand-500) 30%, transparent);
+}
+
+.gradient-mesh {
+  background:
+    radial-gradient(ellipse 80% 50% at 50% -20%, color-mix(in srgb, var(--color-brand-400) 25%, transparent), transparent),
+    radial-gradient(ellipse 60% 40% at 100% 0%, color-mix(in srgb, var(--color-brand-300) 15%, transparent), transparent);
+}
+
+.card-glow {
+  box-shadow:
+    0 0 0 1px var(--color-border),
+    0 4px 24px -4px color-mix(in srgb, var(--color-brand-600) 12%, transparent);
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-up {
+  animation: fade-up 0.6s ease-out forwards;
+}
+
+.animate-delay-100 {
+  animation-delay: 0.1s;
+}
+
+.animate-delay-200 {
+  animation-delay: 0.2s;
+}
+
+.animate-delay-300 {
+  animation-delay: 0.3s;
+}
