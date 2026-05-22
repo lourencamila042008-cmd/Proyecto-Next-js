@@ -1,0 +1,21 @@
+#!/bin/sh
+# Bloquea commits que incluyan node_modules o .next
+
+if git diff --cached --name-only | grep -qE '^(node_modules/|\.next/)'; then
+  echo ""
+  echo "=========================================="
+  echo "  COMMIT BLOQUEADO"
+  echo "=========================================="
+  echo ""
+  echo "  No puedes subir node_modules ni .next a GitHub."
+  echo ""
+  echo "  Para corregir, ejecuta:"
+  echo "    git reset HEAD node_modules .next"
+  echo ""
+  echo "  Luego agrega solo el codigo:"
+  echo "    git add src package.json vercel.json public"
+  echo ""
+  exit 1
+fi
+
+exit 0
